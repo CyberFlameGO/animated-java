@@ -436,7 +436,7 @@ export function computeBones(models, animations) {
 
 //FIXME This code block should be moved to model_computation.js and it's variables should be passed to AJ by the exporter
 //START
-const displayScale = 1.6
+const displayScale = 1
 const displayScaleModifier = 4
 const elementScaleModifier = displayScaleModifier / displayScale
 
@@ -446,20 +446,20 @@ async function scaleModels(models) {
 		for (const element of model.elements) {
 			element.to = [
 				element.to[0] / elementScaleModifier + 8, // Center the x pos in the model
-				element.to[1] / elementScaleModifier + 5, // Center the y pos in the model
+				element.to[1] / elementScaleModifier + 8, // Center the y pos in the model
 				element.to[2] / elementScaleModifier + 8, // Center the z pos in the model
 			]
 
 			element.from = [
 				element.from[0] / elementScaleModifier + 8,
-				element.from[1] / elementScaleModifier + 5,
+				element.from[1] / elementScaleModifier + 8,
 				element.from[2] / elementScaleModifier + 8,
 			]
 
 			if (element.rotation) {
 				element.rotation.origin = [
 					element.rotation.origin[0] / elementScaleModifier + 8,
-					element.rotation.origin[1] / elementScaleModifier + 5,
+					element.rotation.origin[1] / elementScaleModifier + 8,
 					element.rotation.origin[2] / elementScaleModifier + 8,
 				]
 			}
@@ -471,8 +471,8 @@ async function scaleModels(models) {
 
 function computeDisplay() {
 	return {
-		head: {
-			translation: [0, 5.6, 0],
+		thirdperson_righthand: {
+			translation: [0, -2, 10],
 			scale: [0, 0, 0].map((_) => displayScaleModifier),
 			rotation: [0, 0, 0],
 		},
