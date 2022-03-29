@@ -474,7 +474,7 @@ function computeDisplay() {
 		thirdperson_righthand: {
 			translation: [0, -2, 10],
 			scale: [0, 0, 0].map((_) => displayScaleModifier),
-			rotation: [0, 0, 0],
+			rotation: [90, 0, 0],
 		},
 	}
 }

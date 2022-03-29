@@ -3,8 +3,6 @@ import type * as aj from '../animatedJava'
 import { CustomError } from '../util/customError'
 import { tl } from '../util/intl'
 import { roundToN } from '../util/misc'
-import { store } from '../util/store'
-
 interface PHAnimationExporterSettings {
 	outputJsonPath: string
 }
@@ -13,10 +11,6 @@ function rawExport(exportData: any) {
 	const ajSettings = exportData.settings.animatedJava
 	const exporterSettings = exportData.settings
 		.PHAnimationExporter as PHAnimationExporterSettings
-	console.groupEnd();
-	console.groupCollapsed('Export Data')
-	console.log(exportData);
-	console.groupEnd();
 	Object.keys(exportData.animations).forEach((animation) => {
 		exportData.animations[animation].frames.forEach((frame) => {
 			Object.keys(frame.bones).forEach((bone) => {
