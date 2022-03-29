@@ -24,6 +24,10 @@ function rawExport(exportData: any) {
 				frame.bones[bone].pos.y = roundToN(frame.bones[bone].pos.y - 22./16., 1000);
 				frame.bones[bone].pos.z = roundToN(frame.bones[bone].pos.z, 1000);
 
+				frame.bones[bone].rot.x = roundToN(frame.bones[bone].rot.x, 1000);
+				frame.bones[bone].rot.y = roundToN(frame.bones[bone].rot.y, 1000);
+				frame.bones[bone].rot.z = roundToN(frame.bones[bone].rot.z, 1000);
+
 				delete frame.bones[bone].scale;
 
 				frame.bones[bone].custom_model_data = exportData.models[bone].aj.customModelData;
