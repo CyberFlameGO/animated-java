@@ -1,16 +1,35 @@
+import { ObjectSpaceNormalMap } from 'three'
 import type * as aj from '../animatedJava'
 import { CustomError } from '../util/customError'
 import { tl } from '../util/intl'
+import { roundToN } from '../util/misc'
 import { store } from '../util/store'
 
-interface rawAnimationExporterSettings {
+interface PHAnimationExporterSettings {
 	outputJsonPath: string
 }
 
-function rawExport(exportData: aj.ExportData) {
+function rawExport(exportData: any) {
 	const ajSettings = exportData.settings.animatedJava
 	const exporterSettings = exportData.settings
-		.rawAnimationExporter as rawAnimationExporterSettings
+		.PHAnimationExporter as PHAnimationExporterSettings
+	console.groupEnd();
+	console.groupCollapsed('Export Data')
+	console.log(exportData);
+	console.groupEnd();
+	Object.keys(exportData.animations).forEach((animation) => {
+		exportData.animations[animation].frames.forEach((frame) => {
+			Object.keys(frame.bones).forEach((bone) => {
+				frame.bones[bone].pos.x = roundToN(frame.bones[bone].pos.x - 5./16., 1000);
+				frame.bones[bone].pos.y = roundToN(frame.bones[bone].pos.y - 22./16., 1000);
+				frame.bones[bone].pos.z = roundToN(frame.bones[bone].pos.z, 1000);
+
+				delete frame.bones[bone].scale;
+
+				frame.bones[bone].custom_model_data = exportData.models[bone].aj.customModelData;
+			});
+		});
+	});
 
 	const FILE = {
 		meta: {
@@ -53,8 +72,8 @@ const genericEmptySettingText = tl(
 
 const Exporter = (AJ: any) => {
 	AJ.settings.registerPluginSettings(
-		'animatedJava.exporters.rawAnimation', // Exporter ID
-		'rawAnimationExporter', // Exporter Settings Key
+		'animatedJava.exporters.PHAnimation', // Exporter ID
+		'PHAnimationExporter', // Exporter Settings Key
 		{
 			outputJsonPath: {
 				title: tl(
@@ -85,7 +104,7 @@ const Exporter = (AJ: any) => {
 			},
 		}
 	)
-	AJ.registerExportFunc('rawAnimationExporter', function () {
+	AJ.registerExportFunc('PHAnimationExporter', function () {
 		AJ.build(
 			(exportData: aj.ExportData) => {
 				console.log('Input Data:', exportData)
