@@ -14,8 +14,8 @@ function rawExport(exportData: any) {
 	Object.keys(exportData.animations).forEach((animation) => {
 		exportData.animations[animation].frames.forEach((frame) => {
 			Object.keys(frame.bones).forEach((bone) => {
-				frame.bones[bone].pos.x = roundToN(frame.bones[bone].pos.x - 5./16., 1000);
-				frame.bones[bone].pos.y = roundToN(frame.bones[bone].pos.y - 22./16., 1000);
+				frame.bones[bone].pos.x = roundToN(frame.bones[bone].pos.x + (7./16.), 1000);
+				frame.bones[bone].pos.y = roundToN(frame.bones[bone].pos.y - (22./16.), 1000);
 				frame.bones[bone].pos.z = roundToN(frame.bones[bone].pos.z, 1000);
 
 				frame.bones[bone].rot.x = roundToN(frame.bones[bone].rot.x, 1000);
