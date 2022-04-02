@@ -375,6 +375,9 @@ animatedJava:
         vanillaStatue:
             title: Statue Exporter
 
+        PHAnimation:
+            title: PixelHideaway Animation
+
         rawAnimation:
             title: Raw Animation
 
