@@ -59,6 +59,7 @@ import { CustomAction } from './util/customAction'
 import { format as modelFormat } from './modelFormat'
 import { renderAnimation } from './animationRenderer'
 import { DefaultSettings, settings } from './settings'
+import createPlayerModel from './playerModelAction'
 // import { makeArmorStandModel } from './makeArmorStandModel'
 
 import {
@@ -231,6 +232,7 @@ img.style.top = '2px'
 img.style.borderRadius = '8px'
 img.style.marginRight = '5px'
 menu.label.prepend(img)
+
 MenuBar.addAction(
 	CustomAction('animated_java_settings', {
 		icon: 'settings',
@@ -266,6 +268,15 @@ MenuBar.addAction(
 			key: 120, // f9
 		}),
 	},
+	'animated_java'
+)
+MenuBar.addAction(CustomAction('animated_java_player_model', {
+		icon: 'person_add',
+		category: 'animated_java',
+		name: 'Create Player Model',
+		condition: () => modelFormat.id === Format.id,
+		click: createPlayerModel
+	}),
 	'animated_java'
 )
 MenuBar.addAction(

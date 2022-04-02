@@ -2,10 +2,10 @@
 #? AJ
 animatedJava:
     plugin:
-        title: Animated Java
+        title: Animated Java PH Fork
 
     menubar:
-        dropdown: Animated Java
+        dropdown: Animated Java PH Fork
         settings: Settings
         export: Export Model
         about: About...
@@ -138,12 +138,14 @@ animatedJava:
             creators: Creators
             discordServer: Join our discord server!
             githubRepo: Source
-            developers: Developers
+            originalDevelopers: Original Developers
+            developers: Developer of Fork
             patrons: Patrons
             honourableMentions: Honourable Mentions
 
             fetchbotQuote: '"Let the java mobs dance too!"'
             snavesutitQuote: '"armor_stand is love, armor_stand is life."'
+            ancientQuote: "\"Wait what's PixelHideaway?\""
 
             youtuber: Youtuber
             translator: Translator

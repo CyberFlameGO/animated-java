@@ -4,6 +4,7 @@ import React from 'react'
 import logo from '../../assets/Animated_Java_2022.svg'
 import snavesutitpfp from '../../assets/YokaiS_Snave.png'
 import fetchbotpfp from '../../assets/YokaiS_Fetchbot.png'
+import ancientpfp from '../../assets/ancientkingg.png'
 const Reasons = {
 	BetaTester: 0,
 	Moderator: 1,
@@ -301,7 +302,7 @@ function About() {
 			<hr />
 			<Center>
 				<h1 style={{ marginTop: '1em', marginBottom: '0.3em' }}>
-					{tl('animatedJava.dialogs.about.developers')}
+					{tl('animatedJava.dialogs.about.originalDevelopers')}
 				</h1>
 			</Center>
 			<div
@@ -371,53 +372,48 @@ function About() {
 				</div>
 			</div>
 			<Center>
-				<h1 style={{ marginTop: '1em', marginBottom: '0.8em' }}>
-					{tl('animatedJava.dialogs.about.patrons')}
+				<h1 style={{ marginTop: '1em', marginBottom: '0.3em' }}>
+					{tl('animatedJava.dialogs.about.developers')}
 				</h1>
 			</Center>
 			<div
 				style={{
 					display: 'flex',
 					flexWrap: 'wrap',
-					justifyContent: 'space-evenly',
+					margin: '20px 14%',
+					justifyContent: 'center',
+					backgroundColor: 'var(--color-back)',
+					borderRadius: '4px',
+					padding: '3% 3%',
+					border: '4px solid var(--color-border)',
 				}}
 			>
-				{people
-					.filter((person) => {
-						return (
-							person.roles.includes(Reasons.PatreonT1) ||
-							person.roles.includes(Reasons.PatreonT2) ||
-							person.roles.includes(Reasons.PatreonT3)
-						)
-					})
-					.map((person) => (
-						<Person key={person.name} person={person} />
-					))}
-			</div>
-
-			<Center>
-				<h1 style={{ marginTop: '1em', marginBottom: '0.8em' }}>
-					{tl('animatedJava.dialogs.about.honourableMentions')}
-				</h1>
-			</Center>
-			<div
-				style={{
-					display: 'flex',
-					flexWrap: 'wrap',
-					justifyContent: 'space-evenly',
-				}}
-			>
-				{people
-					.filter((person) => {
-						return !(
-							person.roles.includes(Reasons.PatreonT1) ||
-							person.roles.includes(Reasons.PatreonT2) ||
-							person.roles.includes(Reasons.PatreonT3)
-						)
-					})
-					.map((person) => (
-						<Person key={person.name} person={person} />
-					))}
+				<div>
+					<img
+						src={ancientpfp}
+						width={128}
+						height={128}
+						style={{
+							borderRadius: '128px',
+							backgroundColor: 'var(--color-ui)',
+							border: '4px solid var(--color-border)',
+							display: 'block',
+							marginLeft: 'auto',
+							marginRight: 'auto',
+						}}
+					></img>
+					<div style={{ textAlign: 'center' }}>
+						<a
+							href="https://twitter.com/ancientkingg"
+							style={{ fontSize: '2em' }}
+						>
+							Ancientkingg
+						</a>
+					</div>
+					<p style={{ textAlign: 'center', fontSize: '1em' }}>
+						{tl('animatedJava.dialogs.about.ancientQuote')}
+					</p>
+				</div>
 			</div>
 			<p>
 				<b>{tl('animatedJava.dialogs.about.buildID')}</b>{' '}
